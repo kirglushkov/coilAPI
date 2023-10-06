@@ -46,11 +46,17 @@
    cd <каталог проекта>
    ```
 
-3. Запустите Docker-контейнеры:
+3. Запустите проект локально:
 
      ```
      pip install -r requirements.txt
      ```
+
+    ```
+    database.py поменяйте ссылку на свою, пример:
+    SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@localhost/coil_db"
+    SQLALCHEMY_DATABASE_URL = "postgresql://user:password@localhost/db_name"
+    ```
      
      ```
      cd ./test.withoutDocker
