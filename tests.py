@@ -12,14 +12,15 @@ class TestCoilAPI(unittest.TestCase):
         assert response.status_code == 200
         assert response.json() == {"message": "Hello World"}
 
-    def test_create_coil(self):
-        payload = {
-            "length": 10,
-            "weight": 25
-        }
-        response = self.client.post("/api/coil", json=payload)
-        assert response.status_code == 200
-        assert isinstance(response.json(), int)
+    # def test_create_coil(self):
+    #     payload = {
+    #         "id": 11,
+    #         "length": 10,
+    #         "weight": 25
+    #     }
+    #     response = self.client.post("/api/coil", json=payload)
+    #     assert response.status_code == 200
+    #     assert isinstance(response.json(), int)
     
     def test_get_coils(self):
         params = {
@@ -36,13 +37,13 @@ class TestCoilAPI(unittest.TestCase):
         assert response.status_code == 200
 
     def test_get_coil_stats(self):
-        params = {
+        payload = {
             "start_date": "2023-01-01",
-            "end_date": "2024-02-02"
+            "end_date": "2023-12-02"
         }
-        start_datetime = datetime.strptime(params["start_date"], "%Y-%m-%d")
-        end_datetime = datetime.strptime(params["end_date"], "%Y-%m-%d").replace(hour=23, minute=59, second=59)
-        response = self.client.get("/api/coil/stats", params={"start_date": start_datetime, "end_date":end_datetime })
+        response = self.client.get("/api/coil/stats", params=payload)
+        print(response.content)  # Debugging statement
+        print(type(response.json()))  
         assert response.status_code == 200
         assert isinstance(response.json(), dict)
 

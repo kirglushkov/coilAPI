@@ -82,11 +82,11 @@ async def get_coils(
         coils = query.all()
         
         return coils
-
+# http://localhost:8000/api/coil/?start_date=2023-01-01&end_date=2024-01-01
 @app.get("/api/coil/stats")
-async def get_coil_stats(params: CoilStats):
-    start_datetime = datetime.strptime(params.start_date, "%Y-%m-%d")
-    end_datetime = datetime.strptime(params.end_date, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
+async def get_coil_stats(start_date: str, end_date: str):
+    start_datetime = datetime.strptime(start_date, "%Y-%m-%d")
+    end_datetime = datetime.strptime(end_date, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
 
     with SessionLocal() as session:
         num_added_coils = session.query(CoilDB).filter(and_(CoilDB.created_at >= start_datetime, CoilDB.created_at <= end_datetime)).count()
