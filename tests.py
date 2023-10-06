@@ -12,15 +12,15 @@ class TestCoilAPI(unittest.TestCase):
         assert response.status_code == 200
         assert response.json() == {"message": "Hello World"}
 
-    # def test_create_coil(self):
-    #     payload = {
-    #         "id": 11,
-    #         "length": 10,
-    #         "weight": 25
-    #     }
-    #     response = self.client.post("/api/coil", json=payload)
-    #     assert response.status_code == 200
-    #     assert isinstance(response.json(), int)
+    def test_create_coil(self):
+        payload = {
+            "id": 11,
+            "length": 10,
+            "weight": 25
+        }
+        response = self.client.post("/api/coil", json=payload)
+        assert response.status_code == 200
+        assert isinstance(response.json(), int)
     
     def test_get_coils(self):
         params = {
