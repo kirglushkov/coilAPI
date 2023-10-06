@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, Column, DateTime, Float, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@localhost/coil_db"
+SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://postgres:postgres@db:5432/coil_db"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

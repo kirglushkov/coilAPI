@@ -2,8 +2,8 @@ from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlalchemy.orm import Session
 import uvicorn
 from datetime import datetime
-from app.database import SessionLocal, engine, CoilDB
-from app.models import Coil
+from database import SessionLocal, engine, CoilDB
+from models import Coil
 from sqlalchemy import and_, func
 
 def get_db():

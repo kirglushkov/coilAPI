@@ -5,3 +5,4 @@ databases
 uvicorn
 pydantic
 httpx
+psycopg2
