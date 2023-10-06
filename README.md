@@ -20,8 +20,17 @@
 3. Запустите Docker-контейнеры:
 
      ```
-     docker-compose up -d
+     docker-compose build
      ```
+
+     ```
+     - docker-compose up
+     ```
+     для ребилда
+     ```
+      docker-compose up --build
+     ```
+
 
 ## Шаги если докер не запускается
 
