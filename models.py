@@ -6,7 +6,3 @@ class Coil(BaseModel):
     length: float
     weight: float
     deleted_at: datetime = None
-
-class CoilStats(BaseModel):
-    start_date: str
-    end_date: str

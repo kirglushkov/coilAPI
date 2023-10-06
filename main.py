@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import uvicorn
 from datetime import datetime
 from database import SessionLocal, engine, CoilDB
-from models import Coil, CoilStats
+from models import Coil
 from sqlalchemy import and_, func
 
 def get_db():
